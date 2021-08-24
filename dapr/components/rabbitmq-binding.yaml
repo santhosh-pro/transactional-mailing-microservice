@@ -1,0 +1,42 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: rabbitmq-binding
+  namespace: default
+spec:
+  type: bindings.rabbitmq
+  version: v1
+  metadata:
+  - name: queueName
+    value: mail
+  - name: host
+    secretKeyRef:
+      name: RabbitMqConfig.Uri
+  - name: durable
+  - name: durable
+    value: true
+  - name: deleteWhenUnused
+    value: false
+  - name: autoAck
+    value: false
+  - name: deliveryMode
+    value: 2
+  - name: requeueInFailure
+    value: true
+  - name: prefetchCount
+    value: 1
+  - name: reconnectWait
+    value: 15
+  - name: concurrencyMode
+    value: parallel
+  - name: backOffPolicy
+    value: exponential
+  - name: backOffInitialInterval
+    value: 100
+  - name: backOffMaxRetries
+    value: -1
+  - name: maxPriority
+    value: 5
+
+auth:
+  secretStore: config-secret-store

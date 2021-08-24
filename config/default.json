@@ -1,0 +1,10 @@
+{
+  "app": {
+    "defaultFromMailAddress": "noreply@dystopian.dev",
+    "homepageUri": "https://dystopian.dev",
+    "logoUri": "https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png",
+    "name": "AppName",
+    "relaySnoozeMs": 1000,
+    "serverPort": 3550
+  }
+}

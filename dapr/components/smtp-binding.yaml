@@ -1,0 +1,37 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: smtp-binding
+  namespace: default
+spec:
+  type: bindings.smtp
+  version: v1
+  metadata:
+    - name: host
+      secretKeyRef:
+        name: SmtpConfig.Host
+    - name: port
+      secretKeyRef:
+        name: SmtpConfig.Port
+    - name: user
+      secretKeyRef:
+        name: SmtpConfig.User
+    - name: password
+      secretKeyRef:
+        name: SmtpConfig.Password
+    - name: skipTLSVerify
+      secretKeyRef:
+        name: SmtpConfig.SkipTlsVerification
+  # - name: emailFrom
+  #   value: "default.sender@example.com"
+  # - name: emailTo
+  #   value: "default.receiver@example.com"
+  # - name: emailCC
+  #   value: "default.cc@example.com"
+  # - name: emailBCC
+  #   value: "default.bcc@example.com"
+  # - name: subject
+  #   value: "default subject"
+
+auth:
+  secretStore: config-secret-store
